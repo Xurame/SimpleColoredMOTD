@@ -1,0 +1,9 @@
+# SimpleColorMOTD Config
+
+motd:
+
+   # This is the message shown on logging in!
+   ingame: "&aWelcome to the server! Enjoy!"
+   
+   # This is the message shown on the tab list! (That "A minecraft server" message)
+   server: "&aMy Server!"
