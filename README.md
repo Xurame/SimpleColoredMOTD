@@ -1,7 +1,8 @@
-[SimpleColoredMOTD](http://dev.bukkit.org/bukkit-plugins/simplecoloredmotd)
+SimpleColoredMOTD
 =================
 
 SimpleColoredMOTD is a simple MOTD changing plugin to make changing that "A minecraft server" message you normally see easier as well as providing a configurable on-login message, and all this via command or config, your choice!
+Link to the project on bukkit: [SimpleColoredMOTD](http://dev.bukkit.org/bukkit-plugins/simplecoloredmotd)
 
 Commands
 =========
