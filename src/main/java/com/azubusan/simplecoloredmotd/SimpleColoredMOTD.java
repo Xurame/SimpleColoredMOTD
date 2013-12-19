@@ -1,4 +1,4 @@
-package com.xurame.ServerMOTD;
+package com.azubusan.simplecoloredmotd;
 
 import java.io.IOException;
 
@@ -14,25 +14,25 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.server.ServerListPingEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import com.xurame.Metrics.Metrics;
-
-public class MOTD extends JavaPlugin implements Listener, CommandExecutor {
+public class SimpleColoredMOTD extends JavaPlugin implements Listener,
+		CommandExecutor {
 
 	@EventHandler
 	public void onPlayerJoin(PlayerJoinEvent e) {
 		Player p = e.getPlayer();
 		String motd = getConfig().getString("motd.ingame");
-		motd = motd.replaceAll("&", "ง");
+		motd = motd.replaceAll("&", "ยง");
 		p.sendMessage(motd);
 	}
 
 	@EventHandler
 	public void onServerPing(ServerListPingEvent e) {
 		String motd = getConfig().getString("motd.server");
-		motd = motd.replaceAll("&", "\u00A7");
+		motd = motd.replaceAll("&", "ยง");
 		e.setMotd(motd);
 	}
 
+	@Override
 	public void onEnable() {
 		getConfig().options().copyDefaults(true);
 		saveDefaultConfig();
@@ -44,6 +44,7 @@ public class MOTD extends JavaPlugin implements Listener, CommandExecutor {
 			// Failed to submit the stats :-(
 		}
 	}
+
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd,
 			String commandLabel, String[] args) {
@@ -54,10 +55,10 @@ public class MOTD extends JavaPlugin implements Listener, CommandExecutor {
 				return true;
 			}
 			String motd = getConfig().getString("motd.ingame");
-			motd = motd.replaceAll("&", "ง");
+			motd = motd.replaceAll("&", "ยง");
 			String server = getConfig().getString("motd.server");
-			server = server.replaceAll("&", "ง");
-			sender.sendMessage(ChatColor.GREEN + "In-Game MOTD: " +  motd);
+			server = server.replaceAll("&", "ยง");
+			sender.sendMessage(ChatColor.GREEN + "In-Game MOTD: " + motd);
 			sender.sendMessage(ChatColor.GREEN + "Server MOTD: " + server);
 			return true;
 		}
@@ -79,7 +80,7 @@ public class MOTD extends JavaPlugin implements Listener, CommandExecutor {
 			getConfig().set("motd.ingame", motd);
 			saveConfig();
 			String motd1 = getConfig().getString("motd.ingame");
-			motd1 = motd1.replaceAll("&", "ง");
+			motd1 = motd1.replaceAll("&", "ยง");
 			sender.sendMessage(ChatColor.GREEN + "MOTD set to: " + motd1);
 			return true;
 		}
@@ -101,7 +102,7 @@ public class MOTD extends JavaPlugin implements Listener, CommandExecutor {
 			getConfig().set("motd.server", motd);
 			saveConfig();
 			String server = getConfig().getString("motd.server");
-			server = server.replaceAll("&", "ง");
+			server = server.replaceAll("&", "ยง");
 			sender.sendMessage(ChatColor.GREEN + "MOTD set to: " + server);
 			return true;
 		}
