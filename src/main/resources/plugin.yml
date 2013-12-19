@@ -1,22 +1,25 @@
-name: SimpleColorMOTD
-version: 3.0
-main: com.xurame.ServerMOTD.MOTD
-description: A super simple MOTD plugin!
+name: ${project.name}
+main: ${project.groupId}.simplecoloredmotd.${project.name}
+version: ${project.version}
+description: ${project.description}
  
 commands:
     motd:
+        aliases: [m]
         usage: /<command>
         description: View MOTD
     setmotd:
+        aliases: [sm, setm, smotd]
         usage: /<command>
         description: Set MOTD
     setservermotd:
+        aliases: [ssm, setsm, ssmotd]
         usage: /<command>
         description: Set system MOTD
        
 permissions:
     motd.*:
-       description: Use all MOTD commands.
+       description: Use all MOTD commands
        children:
            motd.check: true
            motd.set: true
@@ -25,5 +28,5 @@ permissions:
         description: Check the MOTD.
         default: true
     motd.set:
-        description: Use the setmotd command to change the MOTD.
+        description: Use the setmotd command to change the MOTD
         default: op
